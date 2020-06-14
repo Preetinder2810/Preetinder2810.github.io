@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Preetinder</title>
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#getResult").click(function(){
+   $.ajax({
+        url: "https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_6b5humTxn76Bxs7DI5xhTCc2YjReJ&domainName=google.com",
+        type: 'GET',
+		async: true,
+        dataType: 'html', // added data type
+        success: function(res) {
+            console.log(res);
+            $("#response").text(res.toString());
+        }
+    });     
+    });
+  });
+</script>
+</head>
+<body>
+
+  <div>
+    <label for="url">Web address</label>
+    <input type="text" class="form-control" id="url" placeholder="Enter url">   
+  </div> 
+  <button id="getResult" class="btn btn-primary">Submit</button>
+
+<pre id="response">
+</pre>
+</body>
+</html>
+
+
